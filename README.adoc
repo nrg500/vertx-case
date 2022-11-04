@@ -1,0 +1,48 @@
+= Case
+
+== First assignment
+Make the ChipVerticle publish events for all other verticles on the eventbus to see.
+
+Create a new Verticle named StatusVerticle that responds to /current/:machineId that responds with a JsonObject of the current status of the Machine (temperature, smoke, whether or not it is in emergency mode, whether it is running or not). You may return unknown status values if the ChipVerticle has not emitted a value yet.
+
+Also implement a test that verifies that when you put an event on the eventbus, the "current" endpoint on the StatusVerticle responds with the correct information.
+
+== Second assignment
+Implement an initial status retrieval request over the eventBus from the StatusVerticle to the ChipVerticle so you can deal with the case where you have not listened to any events yet.
+
+== Third assignment
+Created a JobSchedulerVerticle that attempts to keep the machines running.
+It should turn on the ventilation when the temperature or smoke levels reach their limits, but it should turn it back off again when in safe territory.
+
+== Fourth assignment
+Create a MongoDB (or database technology of choice) database and store all the events you get. Implement an average temperature request for the WebVerticle that queries the database and averages all the events.
+
+image:https://img.shields.io/badge/vert.x-4.3.4-purple.svg[link="https://vertx.io"]
+
+This application was generated using http://start.vertx.io
+
+== Building
+
+To launch your tests:
+```
+./mvnw clean test
+```
+
+To package your application:
+```
+./mvnw clean package
+```
+
+To run your application:
+```
+./mvnw clean compile exec:java
+```
+
+== Help
+
+* https://vertx.io/docs/[Vert.x Documentation]
+* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
+* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
+* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+
+
